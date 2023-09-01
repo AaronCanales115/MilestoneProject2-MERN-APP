@@ -1,0 +1,19 @@
+@function text-color-picker($color) {
+    @if(lightness($color) > 70) {
+      @return black;
+    } @else {
+      @return white;
+    }
+  }
+
+  @mixin set-bg($color) {
+    @if null($color){
+      @warn 'Error, no color specified';
+    }
+    background-color: $color;
+    color: text-color-picker($color);
+  }
+
+  @mixin centerElement(){
+    margin: 0 auto;
+  }
