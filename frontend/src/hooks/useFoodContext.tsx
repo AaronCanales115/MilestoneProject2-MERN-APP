@@ -1,7 +1,7 @@
 import { FoodsContext } from "../context/foodContext";
 import { useContext } from "react";
 
-export const useFoodsContext = () => {
+export const useFoodsContext:any = () => {
     const context = useContext(FoodsContext)
 
     if(!context){

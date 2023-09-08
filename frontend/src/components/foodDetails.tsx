@@ -1,7 +1,7 @@
 //import { useFoodsContext } from "../hooks/useFoodContext"
 import { useState } from 'react'
 
-const FoodDetails = ({ key, food, displaySetter }) => {
+const FoodDetails = (key: any, food: any, displaySetter: any ) => {
     //const { dispatch } = useFoodsContext()
     const [rowBeingEdited, setRowBeingEdited] = useState('')/*when suer clicks on a row, this will change to the id of the record the user clicked, then causing that record to re-render as a form the user can change the values of*/
     const [editedRecord, setEditedRecord] = useState({ name: '', calories: 0 })/*when user edits the form after clicking edit, this stores the values the user wants in the edited record*/
@@ -19,12 +19,12 @@ const FoodDetails = ({ key, food, displaySetter }) => {
         }
     }
 
-    const onEditPress = (e) => {
+    const onEditPress = (e:any) => {
         e.preventDefault()
         setRowBeingEdited(String(food._id))
     }
 
-    const onEditConfirmClick = async (e) => {
+    const onEditConfirmClick = async (e:any) => {
         e.preventDefault()
         console.log("editedRecord",editedRecord)
         const response = await fetch('https://milestone-project2-mern-app-c8267116782f.herokuapp.com/api/foods/' + food._id, {
@@ -43,7 +43,7 @@ const FoodDetails = ({ key, food, displaySetter }) => {
         setRowBeingEdited('')
     }
 
-    const onCancelClick = (e) => {
+    const onCancelClick = (e: any) => {
         e.preventDefault()
         setRowBeingEdited('')
     }
@@ -68,7 +68,7 @@ const FoodDetails = ({ key, food, displaySetter }) => {
                     ></input></p>
                     <p><label>Calories:</label><input type="number" 
                         onChange={(e) => {
-                            setEditedRecord({ ...editedRecord, calories: String(e.target.value) })
+                            setEditedRecord({ ...editedRecord, calories: Number(e.target.value) })
                         }
                         }
                     ></input></p>

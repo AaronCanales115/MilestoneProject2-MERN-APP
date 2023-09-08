@@ -5,10 +5,16 @@ import { useFoodsContext } from '../hooks/useFoodContext'
 import FoodDetails from "../components/foodDetails"
 import AddFood from "../components/addFood"
 
-const Tracker = () => {
-    const {foods, dispatch} = useFoodsContext()    
+interface Props{
+    key: any,
+    food: any,
+    displaySetter: any
+}
 
-
+const Tracker = ({key,food,displaySetter}: Props): React.ReactNode => {
+    
+    const {foods} = useFoodsContext()    
+    const {dispatch} = useFoodsContext()   
     /*
     This function re-renders the page based on the database currently. 
     Previously we used all these dispatch commands to manipulate a 
@@ -53,9 +59,13 @@ const Tracker = () => {
         <div className="tracker">
             
             <div className="foods">
-                {foods && foods.map((food) => (
-                    <FoodDetails key={food._id} food={food} displaySetter={refreshFromDatabase}></FoodDetails>
-                ))}
+                {foods && foods.map((food: any) => {
+                    <FoodDetails 
+                        key={food._id} 
+                        food={food} 
+                        displaySetter={refreshFromDatabase}>
+                    </FoodDetails>
+                    })}
             </div>
             <AddFood displaySetter={refreshFromDatabase}/>
         </div>
