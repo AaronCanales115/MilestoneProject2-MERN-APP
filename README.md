@@ -34,6 +34,28 @@ Bug reported in update food information feature
 
 Eventually we want to add a time period aspect to the data. This way a user can track by day what they ate, which would really be essential for a normal user of the app. As well, we could make it look a bit more like a calendar once we add this aspect to the data.
 
+## REST API
+
+## Get all foods
+### Request
+ ` GET /api/foods/`
+
+## Get one food
+### Request
+ `GET /api/foods/:id`
+
+## Add one food
+### Request
+ `POST /api/foods/`
+
+## Delete one food
+### Request
+ `DELETE /api/foods/:id`
+
+## update one food
+### Request
+ `PATCH /api/foods/:id`
+
 ## Authors
 
 Aaron Canales
