@@ -1,5 +1,5 @@
-const express = require('express');
-const {createFood, getFood, getFoods, deleteFood, updateFood} = require('../controllers/food_controller')
+import express from 'express';
+import {createFood, getFood, getFoods, deleteFood, updateFood} from '../controllers/food_controller'
 const router = express.Router();
 
 router.get('/', getFoods)

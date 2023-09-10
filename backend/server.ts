@@ -1,8 +1,9 @@
 require('dotenv').config();
 
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+//const express = require('express');
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
 const Foods = require('./routes/foods')
 
 //express app
@@ -23,11 +24,11 @@ app.use('/api/foods', Foods)
 
 //connect to db
 mongoose.connect("mongodb+srv://the_ACE_team:3JDjDzrarqJWKPKF@milestoneproject2.5b61vwy.mongodb.net/", {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
+    //useNewUrlParser: true, 
+    //useUnifiedTopology: true
   })
 
 //listen for requests
 app.listen(process.env.PORT || 3005, () => {
-    console.log('connected to mongo and listening on port ', process.env.PORT);
+    console.log('connected to mongo and listening on port ', process.env.PORT, 3005);
 })

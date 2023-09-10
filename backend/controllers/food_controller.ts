@@ -1,14 +1,14 @@
 const Food = require('../models/food_model')
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 //get all foods
-const getFoods = async (req, res) => {
+export const getFoods = async (req: any, res: any) => {
     const foods = await Food.find({})
     res.status(200).json(foods)
 }
 
 //get a single food
-const getFood = async (req, res) => {
+export const getFood = async (req: any, res: any) => {
     const {id} = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -23,13 +23,13 @@ const getFood = async (req, res) => {
 
     res.status(200).json(food)
 } 
-
+let emptyFields: string[]
 //create a new food 
-const createFood = async (req, res) => {
+export const createFood = async (req, res) => {
     const {name, calories} = req.body
 
     //Show empty fields
-    let emptyFields = []
+    
     if(!name){
         emptyFields.push('name')
     }
@@ -49,7 +49,7 @@ const createFood = async (req, res) => {
 }
 
 //delete a food
-const deleteFood = async (req, res) => {
+export const deleteFood = async (req, res) => {
     const {id} = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -66,7 +66,7 @@ const deleteFood = async (req, res) => {
 }
 
 //update a food
-const updateFood = async (req, res) => {
+export const updateFood = async (req, res) => {
     const {id} = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
